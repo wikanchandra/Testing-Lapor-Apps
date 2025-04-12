@@ -14,7 +14,6 @@ test('LoginFailed', async({browser})=>{
     
     await page.locator("//button[normalize-space()='Sign in']").click()
     
-    //await page.textContent("//label[normalize-space()='Login Gagal! Kata sandi salah.']")
     const ErrorMessage = await page.locator("//label[normalize-space()='Login Gagal! Kata sandi salah.']")
     await expect(ErrorMessage).toBeVisible()
     await expect(ErrorMessage).toHaveText("Login Gagal! Kata sandi salah.")
@@ -22,11 +21,5 @@ test('LoginFailed', async({browser})=>{
     await page.screenshot({path:"screenshot/failed.png"})
 
     await page.waitForTimeout(2000)
-
-    // await page.reload();
-
-    // await page.locator("//input[@placeholder='Email']").fill("admin@example.com")
-    // password.fill("password");    
-    // await page.locator("//button[normalize-space()='Sign in']").click()
     
     })
